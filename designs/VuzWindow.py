@@ -14,10 +14,10 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_Dialog(object):
     def setupUi(self, Dialog):
         Dialog.setObjectName("Dialog")
-        Dialog.resize(585, 530)
+        Dialog.resize(585, 585)
         Dialog.setStyleSheet("background-color:#B0C4DE")
         self.pushButton = QtWidgets.QPushButton(Dialog)
-        self.pushButton.setGeometry(QtCore.QRect(10, 480, 251, 41))
+        self.pushButton.setGeometry(QtCore.QRect(10, 520, 251, 51))
         font = QtGui.QFont()
         font.setFamily("Sitka")
         font.setPointSize(14)
@@ -133,10 +133,11 @@ class Ui_Dialog(object):
         font.setBold(True)
         font.setWeight(75)
         self.label.setFont(font)
-        self.label.setStyleSheet("color:white")
+        self.label.setStyleSheet("color:#F5FFFA")
         self.label.setObjectName("label")
         self.listWidget = QtWidgets.QListWidget(Dialog)
-        self.listWidget.setGeometry(QtCore.QRect(0, 100, 585, 380))
+        self.listWidget.setGeometry(QtCore.QRect(0, 100, 585, 411))
+        self.listWidget.setStyleSheet("color:black;background-color:white")
         self.listWidget.setObjectName("listWidget")
 
         self.retranslateUi(Dialog)

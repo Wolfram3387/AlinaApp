@@ -48,7 +48,7 @@ class TwoWindow(QtWidgets.QMainWindow, InputPoints.Ui_Dialog):
         self.oneWindow = None
         self.setupUi(self)
         self.pushButton_done.clicked.connect(self.btn_done_clicked)
-        self.pushButton_back.clicked.connect(self.btn_back_clicked)
+        self.pushButton_back_2.clicked.connect(self.btn_back_clicked)
 
     def btn_back_clicked(self):
         self.close()
@@ -119,7 +119,8 @@ class TwoWindow(QtWidgets.QMainWindow, InputPoints.Ui_Dialog):
         self.fiveWindow.textEdit_Vuz.setText(vuz)
         self.fiveWindow.textEdit_Score.setText(score)
         self.fiveWindow.textEdit_Direction.setText(direction)
-        self.fiveWindow.textEdit_Site.setText(link)
+        self.fiveWindow.textBrowser_Site.setText(link)
+        self.fiveWindow.textBrowser_Site.setOpenLinks(True)
         self.fiveWindow.textEdit_Chances.setText(chances)
         self.fiveWindow.show()
 
@@ -135,12 +136,14 @@ class TwoWindow(QtWidgets.QMainWindow, InputPoints.Ui_Dialog):
         my_window.exec_()
 
     @staticmethod
-    def warning_1(self):
-        # TODO переделать
+    def warning_1():
         # Создаём окно и добавляем туда различные атрибуты
         my_window = QMessageBox()
-        my_window.setText('Введите реальные значения или 0')
-        my_window.setDetailedText('Значения баллов за каждый предмет должны быть от 0 до 100. Дополнительные баллы от 0 до 10')
+        my_window.setText('Ваши баллы (по предмету) ниже, чем удтвержденные Министерством науки и Высшего образования.')
+        my_window.setDetailedText(
+            'Минимальные баллы за Профильную математику составляют 27, за Русский - 36, за Физику - 36, за Информатику - 40 в 2023 году.'
+            ' Вы не сможете пройти ни в один ВУЗ. ')
+
         my_window.setIcon(QMessageBox.Information)
         my_window.setWindowTitle('Предупреждение')
         my_window.setStandardButtons(QMessageBox.Ok)
@@ -208,8 +211,8 @@ def main():
 if __name__ == '__main__':  # Если мы запускаем файл напрямую, а не импортируем
     main()  # то запускаем функцию main()
 
-# pyuic5 /Users/Wolfram_3387/Downloads/HelloWindowNew.ui -o /Users/Wolfram_3387/Downloads/AlinaApp/designs/WelcomeWindow.py
-# pyuic5 /Users/Wolfram_3387/Downloads/InputPointsNew.ui -o /Users/Wolfram_3387/Downloads/AlinaApp/designs/InputPoints.py
-# pyuic5 /Users/Wolfram_3387/Downloads/VuzWindow.ui -o /Users/Wolfram_3387/Downloads/AlinaApp/designs/VuzWindow.py
-# pyuic5 /Users/Wolfram_3387/Downloads/ProfessionsWindow.ui -o /Users/Wolfram_3387/Downloads/ProfessionsWindow.py
-# pyuic5 /Users/Wolfram_3387/Downloads/FinalScoreWindow.ui -o /Users/Wolfram_3387/Downloads/FinalScoreWindow.py
+# pyuic5 /Users/Wolfram_3387/Downloads/HelloWindowNew.ui -o /Users/Wolfram_3387/PycharmProjects/AlinaApp/designs/WelcomeWindow.py
+# pyuic5 /Users/Wolfram_3387/Downloads/VuzWindow.ui -o /Users/Wolfram_3387/PycharmProjects/AlinaApp/designs/VuzWindow.py
+# pyuic5 /Users/Wolfram_3387/Downloads/ProfessionsWindow.ui -o /Users/Wolfram_3387/PycharmProjects/AlinaApp/designs/ProfessionsWindow.py
+# pyuic5 /Users/Wolfram_3387/Downloads/FinalScoreWindow.ui -o /Users/Wolfram_3387/PycharmProjects/AlinaApp/designs/FinalScoreWindow.py
+# pyuic5 /Users/Wolfram_3387/Downloads/InputPointsNew.ui -o /Users/Wolfram_3387/PycharmProjects/AlinaApp/designs/InputPoints.py
